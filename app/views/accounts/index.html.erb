@@ -1,0 +1,23 @@
+<h1>Accounts:</h1>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>SSN</th>
+    <th>Income</th>
+  </thead>
+  <% @accounts.each do |account|  %>
+  <tr>
+    <td> <%= account.name %></td>
+    <td> <%= account.address %></td>
+    <td> <%= account.ssn %></td>
+    <td> <%= account.income %></td>
+    <td>
+      <%= link_to "Edit", edit_account_path(account) %>
+      <%= link_to "Remove", account, method: :delete, data: {confirm: 'Do you really want to delete?'} %>
+    </td>
+  </tr>
+  <% end %>
+  <%= link_to "Create", new_account_path %>
+</table>

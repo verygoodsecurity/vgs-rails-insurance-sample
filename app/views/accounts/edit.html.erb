@@ -1,0 +1,21 @@
+<%= form_for @account do |a| %>
+<div>
+  <%= a.label :name %>
+  <%= a.text_field :name %>
+</div>
+<div>
+  <%= a.label :address %>
+  <%= a.text_field :address %>
+</div>
+<div>
+  <%= a.label :ssn %>
+  <%= a.text_field :ssn %>
+</div>
+<div>
+  <%= a.label :income %>
+  <%= a.text_field :income %>
+</div>
+<div>
+  <%= a.submit %>
+</div>
+<% end %>
