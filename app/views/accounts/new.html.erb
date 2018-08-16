@@ -1,21 +1,47 @@
-<%= form_for @account do |a| %>
-<div>
-  <%= a.label :name %>
-  <%= a.text_field :name %>
+<% content_for :title, "Create account" %>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">VGS</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Accounts
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= form_for @account do |a| %>
+      <br/>
+      <div class="form-group">
+        <%= a.label :name, :for => "nameInput" %>
+        <%= a.text_field :name, :class=>"form-control", :id => "nameInput" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :address, :for => "addressInput" %>
+        <%= a.text_field :address, :class=>"form-control", :id => "addressInput" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :ssn, :for => "ssnInput" %>
+        <%= a.text_field :ssn, :class=>"form-control", :id => "ssnInput" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :income, :for => "incomeInput" %>
+        <%= a.text_field :income, :class=>"form-control", :id => "incomeInput" %>
+      </div>
+      <div>
+        <%= a.submit :class => "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
 </div>
-<div>
-  <%= a.label :address %>
-  <%= a.text_field :address %>
-</div>
-<div>
-  <%= a.label :ssn %>
-  <%= a.text_field :ssn %>
-</div>
-<div>
-  <%= a.label :income %>
-  <%= a.text_field :income %>
-</div>
-<div>
-  <%= a.submit %>
-</div>
-<% end %>

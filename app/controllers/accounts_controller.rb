@@ -1,4 +1,5 @@
  class AccountsController < ApplicationController
+
    def index
      @accounts = Account.all
    end
@@ -36,6 +37,20 @@
    def destroy
      @account = Account.find(params[:id])
      @account.destroy
+     redirect_to accounts_path
+   end
+
+   def calculate
+     account = Account.find(params[:id])
+     quote = HTTParty.post(ENV['API_URL'], :body => {
+         :name => account.name,
+         :address => account.address,
+         :ssn => account.ssn,
+         :income => account.income
+     }.to_json, :headers =>
+         { 'Content-Type' => 'application/json' }, :verify => false)
+     account.quote = quote.body
+     account.save
      redirect_to accounts_path
    end
 

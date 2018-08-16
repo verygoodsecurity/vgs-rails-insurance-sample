@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_08_13_131100) do
     t.string "address"
     t.string "ssn"
     t.string "income"
+    t.bigint "quote"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
