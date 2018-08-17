@@ -15,6 +15,6 @@ services:
     depends_on:
       - api-mock
     environment:
-      HTTPS_PROXY: "https://USk1obR2wxsvg9PGQkLBiLdZ:205201ca-ee08-431c-823b-f3e7ac20157c@tnt4oktg1z3.SANDBOX.verygoodproxy.io:8080"
-      HTTP_PROXY: "https://USk1obR2wxsvg9PGQkLBiLdZ:205201ca-ee08-431c-823b-f3e7ac20157c@tnt4oktg1z3.SANDBOX.verygoodproxy.io:8080"
-      API_URL: "https://954b1015.ngrok.io/quote"
+      HTTPS_PROXY: "${HTTPS_PROXY}"
+      HTTP_PROXY: "${HTTP_PROXY}"
+      API_URL: "${API_URL}"
