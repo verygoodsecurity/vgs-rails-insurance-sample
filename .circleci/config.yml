@@ -16,8 +16,8 @@ version: 2
 jobs:
   build:
     <<: *job-defaults
-    machine:
-      enabled: true
+    docker:
+      image: circleci/ruby:2.5.1
     steps:
       - checkout
       - run:
@@ -45,6 +45,8 @@ workflows:
             tags:
               only: /.*/
       - build-docker:
+          requires:
+            - build
           filters:
             tags:
               only: /.*/
