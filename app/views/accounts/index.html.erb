@@ -40,11 +40,9 @@
               <td class="truncated_cell"> <span> <%= account.income %> </span> </td>
               <td> <span> <%= account.quote %> </span> </td>
               <td class="button_cell">
-                <div class="btn-group">
-                  <%= button_to "Edit", edit_account_path(account), :class => "btn btn-block btn-space btn-info", :method => "get" %>
-                  <%= button_to "Remove", account, :class => "btn btn-block btn-space btn-danger", method: :delete, data: {confirm: 'Do you really want to delete?'} %>
-                  <%= button_to "Calculate",  calculate_accounts_path(account), :class => "btn btn-block btn-space btn-success", method: :post %>
-                </div>
+                <%= button_to "Edit", edit_account_path(account), :class => "btn btn-block btn-space btn-info", :method => "get" %>
+                <%= button_to "Remove", account, :class => "btn btn-block btn-space btn-danger", method: :delete, data: {confirm: 'Do you really want to delete?'} %>
+                <%= button_to "Calculate",  calculate_accounts_path(account), :class => "btn btn-block btn-space btn-success", method: :post %>
               </td>
             </tr>
           <% end %>
