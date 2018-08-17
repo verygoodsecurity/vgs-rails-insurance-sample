@@ -1,23 +1,55 @@
-<h1>Accounts:</h1>
-
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Address</th>
-    <th>SSN</th>
-    <th>Income</th>
-  </thead>
-  <% @accounts.each do |account|  %>
-  <tr>
-    <td> <%= account.name %></td>
-    <td> <%= account.address %></td>
-    <td> <%= account.ssn %></td>
-    <td> <%= account.income %></td>
-    <td>
-      <%= link_to "Edit", edit_account_path(account) %>
-      <%= link_to "Remove", account, method: :delete, data: {confirm: 'Do you really want to delete?'} %>
-    </td>
-  </tr>
-  <% end %>
-  <%= link_to "Create", new_account_path %>
-</table>
+<% content_for :title, "VGS insurance manager" %>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">VGS</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Accounts
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <h1>Accounts:</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+          <th>Name</th>
+          <th>Address</th>
+          <th>SSN</th>
+          <th>Income</th>
+          <th>Quote</th>
+          </thead>
+          <% @accounts.each do |account| %>
+            <tr>
+              <td class="truncated_cell"> <span> <%= account.name %> </span> </td>
+              <td class="truncated_cell"> <span> <%= account.address %> </span> </td>
+              <td class="truncated_cell"> <span> <%= account.ssn %> </span> </td>
+              <td class="truncated_cell"> <span> <%= account.income %> </span> </td>
+              <td> <span> <%= account.quote %> </span> </td>
+              <td class="button_cell">
+                <%= button_to "Edit", edit_account_path(account), :class => "btn btn-block btn-space btn-info", :method => "get" %>
+                <%= button_to "Remove", account, :class => "btn btn-block btn-space btn-danger", method: :delete, data: {confirm: 'Do you really want to delete?'} %>
+                <%= button_to "Calculate",  calculate_accounts_path(account), :class => "btn btn-block btn-space btn-success", method: :post %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+        <br/>
+      </div>
+      <%= button_to "Create", new_account_path, :class => "btn btn-success", :method => "get" %>
+    </main>
+  </div>
+</div>

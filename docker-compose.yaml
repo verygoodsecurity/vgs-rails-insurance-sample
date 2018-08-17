@@ -1,0 +1,20 @@
+version: '2'
+services:
+  api-mock:
+    build:
+      context: ./api-mock
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+  vgs-insurance:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-mock
+    environment:
+      HTTPS_PROXY: "${HTTPS_PROXY}"
+      HTTP_PROXY: "${HTTP_PROXY}"
+      API_URL: "${API_URL}"

@@ -5,6 +5,7 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :ssn
       t.string :income
+      t.bigint :quote
 
       t.timestamps
     end

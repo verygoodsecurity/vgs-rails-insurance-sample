@@ -1,0 +1,27 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+body {
+  overflow-x: hidden;
+}
+.button_to {
+  margin: 2px;
+}
+.table td.truncated_cell {
+  max-width: 177px;
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+  }
+}
+.sidebar{
+  max-width: 170px;
+}
+.edit_account {
+  margin-left: 20px;
+}
+.new_account {
+  margin-left: 20px;
+}
