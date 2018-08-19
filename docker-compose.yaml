@@ -12,8 +12,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    depends_on:
-      - api-mock
     environment:
       HTTPS_PROXY: "${HTTPS_PROXY}"
       HTTP_PROXY: "${HTTP_PROXY}"
