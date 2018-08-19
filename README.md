@@ -1,6 +1,7 @@
 <p align="center"><a href="https://www.verygoodsecurity.com/"><img src="https://avatars0.githubusercontent.com/u/17788525" width="128" alt="VGS Logo"></a></p>
 <p align="center"><b>vgs-rails-insurance-sample</b></p>
 <p align="center"><i>Integration of Ruby on Rails 5 app with VGS</i></p>
+<p align="center"><a href="https://circleci.com/gh/verygoodsecurity/vgs-rails-insurance-sample/tree/master"><img src="https://circleci.com/gh/verygoodsecurity/vgs-rails-insurance-sample/tree/master.svg?style=svg&circle-token=bbe06e3eddf5fef5eea3c1375d936e4924ad1d77" alt="CircleCI"></a></p>
 
 ## Requirements
 - Ruby 2.5.1
