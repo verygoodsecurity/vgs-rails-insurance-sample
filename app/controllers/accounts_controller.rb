@@ -42,7 +42,8 @@
 
    def calculate
      account = Account.find(params[:id])
-     quote = HTTParty.post(ENV['API_URL'], :body => {
+     path = ENV['API_URL'] + '/quote'
+     quote = HTTParty.post(path, :body => {
          :name => account.name,
          :address => account.address,
          :ssn => account.ssn,
