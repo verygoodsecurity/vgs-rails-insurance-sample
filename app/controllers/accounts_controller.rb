@@ -42,15 +42,20 @@
 
    def calculate
      account = Account.find(params[:id])
-     path = ENV['API_URL'] + '/quote'
-     quote = HTTParty.post(path, :body => {
-         :name => account.name,
-         :address => account.address,
-         :ssn => account.ssn,
-         :income => account.income
-     }.to_json, :headers =>
-         { 'Content-Type' => 'application/json' }, :verify => false)
-     account.quote = quote.body
+     prx = 'http://' + ENV['VGS_USERNAME'] + ':' + ENV['VGS_PASSWORD'] + '@' + ENV['VGS_VAULT'] + '.SANDBOX.verygoodproxy.com:8080'
+     puts prx
+     proxy = URI.parse(prx) 
+     path = ENV['API_URL'] + '/quote' 
+     uri = URI.parse(path) 
+     http = Net::HTTP.new(uri.host, uri.port, proxy.host, proxy.port, proxy.user, proxy.password)
+     http.use_ssl = true
+     http.ca_file = 'sandbox.pem'
+     http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+     http.verify_depth = 5
+     request = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' => 'application/json'})
+     request.body = { name: account.name, address: account.address, ssn: account.ssn, income: account.income}.to_json
+     response = http.request(request)
+     account.quote = response.body
      account.save
      redirect_to accounts_path
    end
