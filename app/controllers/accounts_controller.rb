@@ -42,9 +42,8 @@
 
    def calculate
      account = Account.find(params[:id])
-     prx = 'http://' + ENV['VGS_USERNAME'] + ':' + ENV['VGS_PASSWORD'] + '@' + ENV['VGS_VAULT'] + '.SANDBOX.verygoodproxy.com:8080'
-     puts prx
-     proxy = URI.parse(prx) 
+     proxy_url = 'http://' + ENV['VGS_USERNAME'] + ':' + ENV['VGS_PASSWORD'] + '@' + ENV['VGS_VAULT'] + '.SANDBOX.verygoodproxy.com:8080'
+     proxy = URI.parse(proxy_url) 
      path = ENV['API_URL'] + '/quote' 
      uri = URI.parse(path) 
      http = Net::HTTP.new(uri.host, uri.port, proxy.host, proxy.port, proxy.user, proxy.password)
