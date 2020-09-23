@@ -23,7 +23,7 @@ http://<user>:<password>@<tenant>.SANDBOX.verygoodproxy.com:8080
 1. Clone repository and go to project directory
 2. Install gems with `./bin/bundle`
 3. Run ngrok for mock service with `ngrok http 5000`
-3. Start server and mock service by putting provided ngrok https address into `NGROK_HTTPS_LINK` with `docker-compose build && API_URL=<NGROK_HTTPS_LINK> docker-compose up`
+3. Start server and mock service by putting provided ngrok https address into `NGROK_HTTPS_LINK` with `docker-compose build && API_URL=<NGROK_HTTPS_LINK> VGS_USERNAME=<VAULT_USERNAME> VGS_PASSWORD=<VAULT_PASSWORD> VGS_VAULT=<VAULT_ID> docker-compose up`
 4. Run ngrok for applcation with `ngrok http 3000`
 5. Copy provided address `https://<some_id>.ngrok.io`
 
