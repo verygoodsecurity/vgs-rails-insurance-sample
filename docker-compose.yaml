@@ -13,6 +13,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      HTTPS_PROXY: "${HTTPS_PROXY}"
-      HTTP_PROXY: "${HTTP_PROXY}"
+      VGS_USERNAME: "${VGS_USERNAME}"
+      VGS_PASSWORD: "${VGS_PASSWORD}"
+      VGS_VAULT: "${VGS_VAULT}"
       API_URL: "${API_URL}"
